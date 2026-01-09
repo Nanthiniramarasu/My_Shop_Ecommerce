@@ -1,0 +1,52 @@
+{% extends 'store/base.html' %} {% block content %}
+<div
+  style="
+    max-width: 600px;
+    margin: 60px auto;
+    background: #ffffffcc;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  "
+>
+  <h2 style="text-align: center; margin-bottom: 20px">🎉 Order Confirmation</h2>
+
+  <p>
+    <strong>Thank you for your purchase, {{ order.user.username }}!</strong>
+  </p>
+  <p><strong>Order ID:</strong> {{ order.id }}</p>
+  <p><strong>Date:</strong> {{ order.ordered_at }}</p>
+  <p><strong>Total:</strong> ₹{{ order.total_price }}</p>
+
+  <h3 style="margin-top: 30px">🛍️ Items:</h3>
+  <table style="width: 100%; border-collapse: collapse">
+    <tr style="background: #f0f0f0">
+      <th style="padding: 8px; text-align: left">Product</th>
+      <th style="padding: 8px; text-align: center">Qty</th>
+      <th style="padding: 8px; text-align: right">Price</th>
+    </tr>
+    {% for item in order.items.all %}
+    <tr>
+      <td style="padding: 8px">{{ item.product.name }}</td>
+      <td style="padding: 8px; text-align: center">{{ item.quantity }}</td>
+      <td style="padding: 8px; text-align: right">₹{{ item.price }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <div style="text-align: center; margin-top: 30px">
+    <a
+      href="{% url 'store:home' %}"
+      style="
+        background: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+      "
+      >← Back to Shop</a
+    >
+  </div>
+</div>
+{% endblock %}

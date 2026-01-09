@@ -1,0 +1,59 @@
+{% extends 'store/base.html' %} 
+
+{% block content %}
+<h1 style="margin-bottom: 20px">🛒 Your Shopping Cart</h1>
+
+{% if cart_items %}
+<table
+  style="
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+  "
+>
+  <thead style="background-color: #1d3557; color: white">
+    <tr>
+      <th style="padding: 12px">Product</th>
+      <th style="padding: 12px">Qty</th>
+      <th style="padding: 12px">Price</th>
+      <th style="padding: 12px">Subtotal</th>
+      <th style="padding: 12px">Remove</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in cart_items %}
+    <tr style="text-align: center; border-bottom: 1px solid #ccc">
+      <td style="padding: 12px">{{ item.product.name }}</td>
+      <td style="padding: 12px">{{ item.quantity }}</td>
+      <td style="padding: 12px">₹{{ item.product.price }}</td>
+      <td style="padding: 12px">₹{{ item.subtotal }}</td>
+      <td style="padding: 12px">
+        <a
+          href="{% url 'store:remove_from_cart' item.id %}"
+          class="btn"
+          style="background-color: crimson"
+          >Remove</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h3 style="margin-top: 20px">Total: ₹{{ total }}</h3>
+
+<a
+  href="{% url 'store:checkout' %}"
+  class="btn"
+  style="margin-top: 10px; display: inline-block"
+  >Proceed to Checkout</a
+>
+{% else %}
+<p>Your cart is empty.</p>
+{% endif %}
+
+<br /><br />
+<a href="{% url 'store:product_list' %}" class="btn">Continue Shopping</a>
+{% endblock %}

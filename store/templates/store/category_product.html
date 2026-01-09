@@ -1,0 +1,48 @@
+{% extends 'store/base.html' %} {% block content %}
+<h2 style="margin-bottom: 20px">🛍️ {{ category|title }} Products</h2>
+
+<div
+  style="
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  "
+>
+  {% for product in products %}
+  <div
+    style="
+      background: #ffffffcc;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    "
+    onmouseover="this.style.transform='scale(1.03)'"
+    onmouseout="this.style.transform='scale(1)'"
+  >
+    {% if product.image %}
+    <img
+      src="{{ product.image.url }}"
+      alt="{{ product.name }}"
+      width="150"
+      style="margin-bottom: 10px"
+    />
+    {% comment %} {% else %}
+    <img
+      src="{% static 'images/default.jpg' %}"
+      alt="No Image"
+      width="150"
+      style="margin-bottom: 10px"
+    />
+    {% endcomment %} {% endif %}
+    <br />
+    <strong style="display: block; margin-top: 10px">{{ product.name }}</strong>
+    <p style="margin: 8px 0">₹{{ product.price }}</p>
+    <a href="{% url 'store:product_detail' product.id %}" class="btn"
+      >View Details</a
+    >
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'store/base.html' %} 
+{% block content %}
+<div
+  style="
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 30px;
+    background: #ffffffcc;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  "
+>
+  <h2 style="margin-bottom: 20px">🔐 Login</h2>
+
+  <form method="post">
+    {% csrf_token %}
+    <input
+      type="text"
+      name="username"
+      placeholder="Username"
+      required
+      style="
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+      "
+    /><br />
+    <input
+      type="password"
+      name="password"
+      placeholder="Password"
+      required
+      style="
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+      "
+    /><br />
+    <button
+      type="submit"
+      class="btn"
+      style="padding: 10px 20px; font-size: 1rem"
+    >
+      Login
+    </button>
+  </form>
+
+  <p style="margin-top: 15px">
+    Don't have an account?
+    <a href="{% url 'accounts:signup' %}" style="color: #007bff">Signup</a>
+  </p>
+</div>
+{% endblock %}

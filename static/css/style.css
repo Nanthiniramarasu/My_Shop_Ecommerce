@@ -1,0 +1,68 @@
+/* General Reset */
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+} */
+
+/* Body with Background */
+/* body {
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    color: #333;
+    padding: 20px;
+} */
+
+/* Centered Box */
+/* .container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 12px;
+    width: 100%;
+    margin: 50px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+} */
+
+/* Headings */
+/* h2 {
+    text-align: center;
+    margin-bottom: 20px;
+} */
+
+/* Form */
+/* form input, */
+/* form button {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+} */
+
+/* Buttons */
+/* button {
+    background-color: #5c67f2;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+} */
+
+/* button:hover {
+    background-color: #3c4cc7;
+} */
+
+/* Links */
+a {
+    color: #5c67f2;
+    text-decoration: none;
+}
+
+/* a:hover {
+    text-decoration: underline;
+} */
